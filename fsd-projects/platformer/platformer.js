@@ -54,9 +54,9 @@ $(function () {
 
 
     // TODO 3 - Create Collectables
-    createCollectable("steve", 1350, 550, .5, .7);
-    createCollectable("diamond", 1350, 250, .25, 1);
-    createCollectable("database", 1350, 100);
+    createCollectable("spaghetti", 1350, 550, .5, .7);
+    createCollectable("cash", 1350, 250, .25, 1);
+    createCollectable("gubby", 1350, 100);
 
 
 

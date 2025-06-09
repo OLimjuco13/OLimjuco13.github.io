@@ -371,16 +371,16 @@ function deathOfPlayer() {
     canvas.height / 2
   );
   ctx.fillStyle = "black";
-  ctx.font = "800% serif";
+  ctx.font = "700% serif";
   ctx.fillText(
-    "You are dead",
+    "Get Better Lol",
     canvas.width / 4,
     canvas.height / 6 + canvas.height / 5,
     (canvas.width / 16) * 14
   );
-  ctx.font = "500% serif";
+  ctx.font = "300% serif";
   ctx.fillText(
-    "Hit any key to restart",
+    "JK, hit any key to restart. :)",
     canvas.width / 4,
     canvas.height / 6 + canvas.height / 3,
     (canvas.width / 16) * 14

@@ -98,4 +98,8 @@ var collectableList = {
   kennedi: { image: "images/collectables/kennedi-head.png" },
   max: { image: "images/collectables/max-head.png" },
   steve: { image: "images/collectables/steve-head.png" },
+  gubby: { image: "images/collectables/download.jpeg" },
+  daftpunk: { image: "images/collectables/discovery.jpeg" },
+  spaghetti: { image: "images/collectables/spaghetti.jpeg" },
+  cash: { image: "images/collectables/money.png" },
 };
