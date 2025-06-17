@@ -5,11 +5,12 @@
 	<meta charset="utf-8">
 	<title>Bouncing Box</title>
 	<script src="jquery.min.js"></script>
-	<style>
-		.box {
+	<style> 
+		.box{
+			
 			width: 70px;
 			height: 70px;
-			background-color: teal;
+			background-color: rgb(125, 206, 157);
 			font-size: 300%;
 			text-align: center;
 			user-select: none;
@@ -22,16 +23,30 @@
 
 		.board {
 			height: 100vh;
+	
+			
 		}
+		.bgimg {
+			position: relative;
+			z-index: -1;
+			left: -20px;
+			top: -20px;
+			width: 1600px;
+			height: 975px;
+		}
+
+	
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 
 </head>
 
 <body class="board">
+
 	<!-- HTML for the box -->
 	<div class="box">?
 	</div>
+
 
 	<script>
 		(function () {
@@ -54,8 +69,9 @@
 			box.on('click', handleBoxClick);
 
 			// moves the Box to a new position on the screen along the X-Axis
-			function moveBoxTo(newPositionX) {
+			function moveBoxTo(newPositionX, newPositionY) {
 				box.css("left", newPositionX);
+				box.css("top", newPositionY);
 			}
 
 			// changes the text displayed on the Box
@@ -69,8 +85,14 @@
 
 			// TODO 2 - Variable declarations 
 			var positionX = 0;
-			var points = 0;
 			var speed = 10;
+			var positionY = 70
+			var speedY = 10
+			var points = 0;
+			var boardHeight = jQuery(window).height();
+			var randNum = Math.random() * boardWidth;
+			var randNumY = Math.random() * boardHeight;
+			var colorStr = "rgb(50, 25, 250)";
 
 
 
@@ -81,12 +103,23 @@
 			*/
 			function update() {
 				positionX = (positionX + speed);
-				moveBoxTo(positionX);	
+				positionY = (positionY + speedY);
+				moveBoxTo(positionX, positionY);	
 				
 				if (positionX >= boardWidth) {
 					speed *= -1;
 				}
-				
+				if (positionX <= 0) {
+					speed *= -1;
+				}
+				if (positionY > 0) {
+					speedY *= -1;
+				}
+				if (positionY < boardHeight) {
+					speedY *= -1;
+				}
+
+
 
 
 
@@ -98,13 +131,41 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-				positionX = 0;
+				randNum = Math.random() * boardWidth;
+				randNumY = Math.random() * boardHeight;
+				positionX = randNum;
+				positionY = randNumY;
 				points++;
 				changeBoxText(points);
-				speed += 3;
-
-
+				speed = (3 * points + 10);
+				speedY = (3 * points + 10);
+				
+				if (points % 3 === 0) {
+					getRandomColor();
+					box.css("background-color", colorStr);
+					speed + 5
+					speedY + 5
+				}
 			};
+
+			function  getRandomColor() {
+				var randomRGBValue1 = Math.random() * 255
+				var randomRGBValue2 = Math.random() * 255
+				var randomRGBValue3 = Math.random() * 255
+				 colorStr = ("rgb(" + randomRGBValue1 + ", " + randomRGBValue2 + ", " + randomRGBValue3 + ")");
+				 return colorStr;
+			}
+				   
+
+
+
+
+			
+
+			
+
+			
+
 
 
 
@@ -112,6 +173,7 @@
 
 		})();
 	</script>
+	<img src="img/finger-lakes-sunset.jpg" class="bgimg">
 </body>
 
 </html>
