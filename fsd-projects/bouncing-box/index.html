@@ -136,15 +136,15 @@
 				positionX = randNum;
 				positionY = randNumY;
 				points++;
-				changeBoxText(points);
+				changeBoxText(points + "!");
 				speed = (3 * points + 10);
 				speedY = (3 * points + 10);
 				
 				if (points % 3 === 0) {
 					getRandomColor();
 					box.css("background-color", colorStr);
-					speed + 5
-					speedY + 5
+					speed + 2;
+					speedY + 2;
 				}
 			};
 
