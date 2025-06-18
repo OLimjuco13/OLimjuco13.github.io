@@ -154,15 +154,12 @@
 					speed + 2;
 					speedY + 2;
 				}
-
-				if ('click' !== box.css) {
-					misclicks++;
-						if (misclicks === 5) {
-							endGame();
-							alert("You misclicked too many times! Try again, :)");
-						}
+					if (box.on(!'click', registerMisclick)) {
+						endGame();
+						alert("You misclicked too many times! Try again, :)");
+					}
 				}
-			};
+			
 
 			function  getRandomColor() {
 				var randomRGBValue1 = Math.random() * 255
@@ -170,6 +167,10 @@
 				var randomRGBValue3 = Math.random() * 255
 				 colorStr = ("rgb(" + randomRGBValue1 + ", " + randomRGBValue2 + ", " + randomRGBValue3 + ")");
 				 return colorStr;
+			}
+
+			function registerMisclick() {
+					misclick++;
 			}
 				   
 
