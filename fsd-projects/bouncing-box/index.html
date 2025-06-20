@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+6<!DOCTYPE html>
 <html>
 
 <head>
@@ -100,6 +100,7 @@
 			var randNum = Math.random() * boardWidth;
 			var randNumY = Math.random() * boardHeight;
 			var colorStr = "rgb(50, 25, 250)";
+			var isClicked = false;
 			var misclicks = 0;
 
 
@@ -147,6 +148,7 @@
 				changeBoxText(points + "!");
 				speed = (3 * points + 10);
 				speedY = (3 * points + 10);
+				isClicked = true;
 				
 				if (points % 3 === 0) {
 					getRandomColor();
@@ -154,11 +156,8 @@
 					speed + 2;
 					speedY + 2;
 				}
-					if (box.on(!'click', registerMisclick)) {
-						endGame();
-						alert("You misclicked too many times! Try again, :)");
-					}
-				}
+
+			}
 			
 
 			function  getRandomColor() {
@@ -170,7 +169,13 @@
 			}
 
 			function registerMisclick() {
-					misclick++;
+				if (isClicked === false) {
+					misclicks++;
+				  if (misclicks === 5) {
+						endGame();
+						alert("You misclicked too many times! Reload to try again :)");
+					}
+				}
 			}
 				   
 
