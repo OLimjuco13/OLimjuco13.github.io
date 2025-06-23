@@ -10,7 +10,7 @@
 			
 			width: 70px;
 			height: 70px;
-			background-color: rgb(125, 206, 157);
+			background-color: rgb(70, 233, 135);
 			font-size: 300%;
 			text-align: center;
 			user-select: none;
@@ -167,9 +167,12 @@
 				 return colorStr;
 			}
 
-			function registerMisclick() {
-				if (isClicked === false) {
-					misclicks++;
+			function countMisclicks() {
+				misclicks++
+			}
+
+			function registerMisclicks() {
+				box.on(!'click', countMisclicks)
 				  if (misclicks === 5) {
 						endGame();
 						alert("You misclicked too many times! Reload to try again :)");
