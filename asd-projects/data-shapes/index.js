@@ -70,7 +70,21 @@ $(document).ready(function () {
   }
 
   // TODO 5-a: add a function that handles the bad display type
-  
+  /*function handleBad(data, repeat){
+    repeat + 1;
+    setBackgroundWithMixed(data, repeat);
+    animationDetails.displayType = 3;
+  } */
+
+ function handleBad(data, repeat){
+    repeat + 1;
+    resetDisplay();
+    currentIndex = Math.floor(Math.random() * ((dataShapes.length - 1)))
+    setBackgroundWithMixed(data, repeat);
+    animationDetails.displayType = 3;
+ }
+
+
 
   /////////////////////////////////////////////////
   // BUTTON HANDLERS BELOW HERE (3-b, 4-b, 5-b) ///
@@ -89,7 +103,9 @@ $(document).ready(function () {
 
   function badDisplay() {
     // TODO 5-b: call your handleBad function
-    
+    var currentShape = dataShapes[currentIndex];
+    var repeat = currentShape.repeat;
+    handleBad(currentShape, repeat);
   }
 
   /////////////////////////////////////////////////
