@@ -227,11 +227,11 @@ function hasCollidedWithSnake() {
   for (i = 1; i < snake.body.length; i++) {
     if (snake.body[i].row === snake.head.row && snake.head.column === snake.body[i].column) {
       return true;
-    }  else {
-      return false;
+    } 
+
     }
   }
-}
+
 function endGame() {
   // stop update function from running
   clearInterval(updateInterval);
