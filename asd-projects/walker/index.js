@@ -48,6 +48,7 @@ function runProgram(){
   */
   function newFrame() {
     repositionGameItem();
+    redrawGameItem();
   }
   
   /* 
@@ -90,5 +91,10 @@ function handleKeyDown(event) {
   function repositionGameItem() {
     walker.x += walker.speedX;
     walker.y += walker.speedY;
+  }
+
+  function redrawGameItem() {
+    $("#walker").css("left", walker.x);
+    $('#walker').css("top", walker.y);
   }
 }
