@@ -10,21 +10,17 @@ function runProgram(){
   // Constant Variables
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
-  var walker = {
-    x: 0,
-    y: 0,
-    speedX: 0,
-    speedY: 0
+  const KEY = {
+    ENTER: 13,
+    LEFT: 37,
+    UP: 38,
+    RIGHT: 39,
+    DOWN: 40
   }
+
   
   // Game Item Objects
-const KEY = {
-  ENTER: 13,
-  LEFT: 37,
-  UP: 38,
-  RIGHT: 39,
-  DOWN: 40
-}
+
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
@@ -46,10 +42,7 @@ const KEY = {
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    repositionGameItem();
-    redrawGameItem();
   }
-
   
   /* 
   This section is where you set up the event handlers for user input.
@@ -57,21 +50,24 @@ const KEY = {
   
   Note: You can have multiple event handlers for different types of events.
   */
-  function handleKeyDown(event) {
-    console.log(event.which);
+function handleKeyDown(event) {
+  console.log(event.which);
 
-      if (event.which === KEY.ENTER) {
-        console.log("ENTER pressed");
-      } else if (event.which === KEY.LEFT) {
-        console.log("LEFT pressed");
-      } else if (event.which === KEY.UP) {
-        console.log("UP pressed");
-      } else if (event.which === KEY.RIGHT) {
-        console.log("RIGHT pressed")
-      } else if (event.which === KEY.DOWN) {
-        console.log("DOWN pressed");
-      }
+    if (event.which === KEY.LEFT){
+      console.log("left pressed");
+    } else if (event.which === KEY.LEFT){
+      console.log("left pressed");
+    } else if (event.which === KEY.UP){
+      console.log("up pressed");
+    } else if (event.which === KEY.RIGHT){
+      console.log("right pressed");
+    } else if (event.which === KEY.DOWN){
+      console.log("down pressed");
+    } else if (event.which === KEY.ENTER){
+      console.log("enter pressed");
     }
+}
+
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -84,13 +80,5 @@ const KEY = {
     // turn off event handlers
     $(document).off();
   }
-}
 
-function repositionGameItem() {
-  walker.x = walker.speedX + walker.x;
-  walker.y = walker.speedY + walker.y;
-}
-
-function redrawGameItem() {
-  #wal
 }
