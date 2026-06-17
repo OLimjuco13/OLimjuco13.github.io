@@ -115,19 +115,20 @@ function handleKeyUp(event) {
   }
 
   function wallCollision() {
-    let boardHeight = $("#board").width();
-    let boardWidth = $("#board").height();
+    let boardHeight = $("#board").height();
+    let boardWidth = $("#board").width();
+    
 
     if (walker.x < 0) {
-      walker.x -= walker.speedX
+      walker.x -= walker.speedX;
       walker.speedX = 0;
-    } else if (walker.x > boardWidth) {
-      walker.x - walker.speedX;
+    } else if (walker.x + $("#walker").width() > boardWidth) {
+      walker.x -= walker.speedX;
       walker.speedX = 0;
     } else if (walker.y < 0) {
       walker.y -= walker.speedY;
       walker.speedY = 0;
-    } else if (walker.y > boardHeight) {
+    } else if (walker.y + $("#walker").height() > boardHeight) {
       walker.y -= walker.speedY;
       walker.speedY = 0;
     }
