@@ -47,6 +47,7 @@ function runProgram(){
   by calling this function and executing the code inside.
   */
   function newFrame() {
+    repositionGameItem();
   }
   
   /* 
@@ -86,4 +87,8 @@ function handleKeyDown(event) {
     $(document).off();
   }
 
+  function repositionGameItem() {
+    walker.x += walker.speedX;
+    walker.y += walker.speedY;
+  }
 }
