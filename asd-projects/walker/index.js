@@ -62,14 +62,16 @@ function handleKeyDown(event) {
 
     if (event.which === KEY.LEFT){
       console.log("left pressed");
-    } else if (event.which === KEY.LEFT){
-      console.log("left pressed");
+      walker.speedX += -5;
     } else if (event.which === KEY.UP){
       console.log("up pressed");
+      walker.speedY -= 5;
     } else if (event.which === KEY.RIGHT){
       console.log("right pressed");
+      walker.speedX += 5;
     } else if (event.which === KEY.DOWN){
       console.log("down pressed");
+      walker.speedY += 5;
     } else if (event.which === KEY.ENTER){
       console.log("enter pressed");
     }
