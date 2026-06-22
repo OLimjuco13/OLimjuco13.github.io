@@ -21,10 +21,10 @@ function resetAndRender() {
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
 
-  applyFilter(reddify);
+  applyFilter(orangify); 
   applyFilterNoBackground(decreaseBlue);
   applyFilter(increaseGreenByBlue);
-  applyFilterNoBackground(reddify);
+  applyFilterNoBackground(reddify); 
   // do not change the below line of code
   render($("#display"), image);
 }
@@ -85,3 +85,11 @@ function increaseGreenByBlue(randArray) {
   randArray[GREEN] = keepInBounds(GREEN)
 }
 // CHALLENGE code goes below here
+
+function orangify(randArray) {
+  randArray[RED] += 240;
+  randArray[GREEN] += 75;
+  randArray[BLUE] -= 10;
+  keepInBounds(RED);
+  keepInBounds(BLUE);
+}
