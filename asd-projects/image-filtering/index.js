@@ -20,8 +20,11 @@ function resetAndRender() {
 // all of your apply functions
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
-  applyFilter(increaseGreenByBlue);
 
+  applyFilter(reddify);
+  applyFilterNoBackground(decreaseBlue);
+  applyFilter(increaseGreenByBlue);
+  applyFilterNoBackground(reddify);
   // do not change the below line of code
   render($("#display"), image);
 }
@@ -34,9 +37,8 @@ function applyAndRender() {
 function applyFilter(filterFunction) {
   for (i = 0; i < image.length; i++) {
     for (j = 0; j < image[i].length; j++) {
-      var pixel = image[i][j];
-      var pixelArray = rgbStringToArray(pixel);
-      //Modify this L8R
+      let pixel = image[i][j];
+      let pixelArray = rgbStringToArray(pixel);
       filterFunction(pixelArray);
       var updatedPixel = rgbArrayToString(pixelArray);
       image[i][j] = updatedPixel;
@@ -45,7 +47,20 @@ function applyFilter(filterFunction) {
 }
 
 // TODO 9 Create the applyFilterNoBackground function
-
+function applyFilterNoBackground(filterFunction) {
+  let backgroundColor = image[0][0];
+  for (i = 0; i < image.length; i++) {
+    for (j = 0; j < image[i].length; j++) {
+      if (image[i][j] !== backgroundColor) {
+       let pixel = image[i][j];
+       let pixelArray = rgbStringToArray(pixel)
+        filterFunction(pixelArray);
+        let updatedPixelString = rgbArrayToString(pixelArray);
+        image[i][j] = updatedPixelString;
+      }
+    }
+  }
+}
 
 // TODO 6: Create the keepInBounds function
 function keepInBounds(number) {
