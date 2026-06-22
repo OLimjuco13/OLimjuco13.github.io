@@ -20,7 +20,7 @@ function resetAndRender() {
 // all of your apply functions
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
-
+  applyFilter();
   
 
   // do not change the below line of code
@@ -32,15 +32,32 @@ function applyAndRender() {
 /////////////////////////////////////////////////////////
 
 // TODO 1, 2, 3 & 5: Create the applyFilter function here
-
+function applyFilter() {
+  for (i = 0; i < image.length; i++) {
+    for (j = 0; j < image[i].length; j++) {
+      var pixel = image[i][j];
+      var pixelArray = rgbStringToArray(pixel);
+      //Modify this L8R
+      pixelArray[RED] = 200
+      var updatedPixel = rgbArrayToString(pixelArray);
+      image[i][j] = updatedPixel;
+    }
+  }
+}
 
 // TODO 9 Create the applyFilterNoBackground function
 
 
 // TODO 6: Create the keepInBounds function
-
+function keepInBounds(number) {
+  return number < 0 ? 0 : number > 255 ? 255 : number;
+  }
 
 // TODO 4: Create reddify filter function
+function redify(randArray) {
+  randArray[RED] = 200;
+}
+
 
 
 // TODO 7 & 8: Create more filter functions
