@@ -88,6 +88,35 @@ function runProgram(){
     }
   }
 
+  function handleKeyUp(event) {
+    if (event.which === KEY.ENTER ) {
+      console.log("ENTER released.");
+    } else if (event.which === KEY.LEFT) {
+      console.log("LEFT released.")
+    } else if (event.which === KEY.RIGHT) {
+      console.log("RIGHT released.")
+    } else if (event.which === KEY.UP) {
+      console.log("UP released.")
+      leftPaddle.speedY -= 0;
+    } else if (event.which === KEY.DOWN) {
+      console.log("DOWN released.")
+      leftPaddle.speedY += 0;
+    }
+
+    if (event.which === WASD.W) {
+      console.log("W released.");
+      rightPaddle.speedY = 0;
+    } else if (event.which === WASD.A) {
+      console.log("A released.");
+    } else if (event.which === WASD.S) {
+      console.log("S released.");
+      rightPaddle.speedY = 0;
+    } else if (event.which === WASD.D) {
+      console.log("S released.")
+    } else if (event.which === WASD.ENTER) {
+      console.log("ENTER released.")
+    }
+  }
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
